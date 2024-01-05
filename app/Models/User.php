@@ -44,11 +44,11 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function name(): Attribute
-    {
-        return new Attribute(
-            get: fn ($value) => strtoupper($value),
-            set: fn ($value) => $value,
-        );
-    }
+    // public function name(): Attribute
+    // {
+    //     return new Attribute(
+    //         get: fn ($value) => strtoupper($value),
+    //         set: fn ($value) => $value,
+    //     );
+    // }
 }

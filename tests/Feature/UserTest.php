@@ -45,4 +45,17 @@ class UserTest extends TestCase
         $response->assertStatus(302);
         $response->assertRedirect('/login');
     }
+
+    public function test_user_has_name_attribute()
+    {
+        $user = User::factory()->create([
+            'name' => 'John',
+            'email' => 'test@test.com',
+            'password' => bcrypt('password123'),
+        ]);
+
+        // $this->assertEquals(strtoupper('John'), $user->name);
+        $this->assertEquals('John', $user->name);
+
+    }
 }
