@@ -17,6 +17,8 @@ Route::get('/about', function () {
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/create', [ProductController::class, 'create'])->middleware('admin')->name('products.create');
 Route::post('/products', [ProductController::class, 'store'])->middleware('admin')->name('products.store');
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->middleware('admin')->name('products.edit');
+Route::put('/products/{product}', [ProductController::class, 'update'])->middleware('admin')->name('products.update');
 
 
 Route::get('/dashboard', function () {
