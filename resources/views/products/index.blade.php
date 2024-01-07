@@ -1,16 +1,20 @@
 <x-guest-layout>
-    <h1>Products index</h1>
-    @auth
-        <a href="">Create</a>
-    @endauth
-
-    @forelse ($products as $product)
-        <h2>{{ $product->name }}</h2>
-        <p>{{ $product->type }}</p>
+    <div class="dark:text-white">
+        <h1>Products index</h1>
         @auth
-            <button>Buy Product</button>
+            @if (auth()->user()->is_admin)
+                <a href="">Create</a>
+            @endif
         @endauth
-    @empty
-        <p>No Products</p>
-    @endforelse
+
+        @forelse ($products as $product)
+            <h2>{{ $product->name }}</h2>
+            <p>{{ $product->type }}</p>
+            @auth
+                <button>Buy Product</button>
+            @endauth
+        @empty
+            <p>No Products</p>
+        @endforelse
+    </div>
 </x-guest-layout>
