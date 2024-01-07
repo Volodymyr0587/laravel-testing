@@ -19,6 +19,8 @@ Route::get('/products/create', [ProductController::class, 'create'])->middleware
 Route::post('/products', [ProductController::class, 'store'])->middleware('admin')->name('products.store');
 Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->middleware('admin')->name('products.edit');
 Route::put('/products/{product}', [ProductController::class, 'update'])->middleware('admin')->name('products.update');
+Route::delete('/products/{product}', [ProductController::class, 'destroy'])->middleware('admin')->name('products.destroy');
+
 
 
 Route::get('/dashboard', function () {

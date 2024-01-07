@@ -35,6 +35,13 @@
                     <th>
                         <button>Buy Product</button>
                         <a href="{{ route('products.edit', $product->id) }}" class="text-blue-500 underline hover:font-bold">Edit</a>
+                        <form action="{{ route('products.destroy', $product->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-500 underline hover:font-bold">
+                                Delete
+                            </button>
+                        </form>
                     </th>
                 @endauth
             @empty
